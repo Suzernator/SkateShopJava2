@@ -1,15 +1,33 @@
 package skate.beans;
-//Manuel Corral Ledezma
+
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToMany;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.Id;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Customer {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long customerId;
 	private String firstName;
 	private String lastName;
 	private String organization;
+	private String email;
+	@Autowired
+	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private Address address;
+
 
 	public Customer(String firstName, String lastName) {
 		super();

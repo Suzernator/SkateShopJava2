@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Input Item for Inventory</title>
+	</head>
+	<body>
+		<fieldset>
+  			<legend>Item Input:</legend>
+  			<form th:object="${newItem}" th:action="@{/update/{id}(id=${newItem.itemId})}" name = "form" method='POST'>
+ 				 <label for="itemName">Item Name:</label>
+ 				 <input type="text" id="itemName" name="itemName"><br><br>
+ 				 <label for="itemDescription">Item Description:</label>
+ 				 <input type="text" id="itemDescription" name="itemDescription"><br><br>
+ 				 <label for="itemPrice">Item Price:</label>
+    			 <input type="text" id="itemPrice" name="itemPrice"><br><br>
+    			 <label for="itemQuantity">Item Quantity:</label>
+    			 <input type="text" id="itemQuantity" name="itemQuantity"><br><br>
+    			 <input type="submit" value="Submit For Review">
+    		</form>
+ 		</fieldset><br /><br />
+	</body>
+</html>
